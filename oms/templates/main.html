@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>order your food</title>
+    <style>
+    #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    #customers td, #customers th {
+    border: 1px solid black;
+    padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #FFDAB9;}
+    #customers tr:nth-child(odd){background-color: #FAFAD2;}
+
+    #customers tr:hover {background-color: #BC8F8F;}
+
+    #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #996666;
+    color: white;
+    }
+</style>
+</head>
+
+
+<body>
+
+<table id="customers">
+<tr>
+    <th><h1>RESTURANT NAME </h1></th>
+    <th><h1>RESTURANT DETAILS</h1></th>
+    <th><h1> OFFER</h1></th>
+</tr>
+{% for order in orders %}
+    <tr>
+        <td><h2>  {{order.name}}</h2></td>
+        <td><h2>  {{order.desc}}</h2></td>
+        <td><h2>  {{order.offer}}</h2></td>
+    </tr>
+
+{% endfor %}
+
+</body>
+</html>

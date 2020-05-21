@@ -1,0 +1,57 @@
+<html>
+
+
+    <head>
+        <title>Sign Up</title>
+    </head>
+
+    <style>
+
+        *{margin: 0; padding: 0;}
+        body{background: #ecf1f4; font-family: sans-serif;}
+
+        .form-wrap{ width: 320px; background: #3e3d3d; padding: 40px 20px; box-sizing: border-box; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+        h1{text-align: center; color: #fff; font-weight: normal; margin-bottom: 20px;}
+
+        input{width: 100%; background: none; border: 1px solid #fff; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px; color: #fff;}
+
+        input[type="button"]{ background: #bac675; border: 0; cursor: pointer; color: #3e3d3d;}
+        input[type="button"]:hover{ background: #a4b15c; transition: .6s;}
+
+        ::placeholder{color: #fff;}
+
+    </style>
+
+    <body>
+    {{error}}
+        <div class="form-wrap">
+         <h1>Sign Up</h1>
+            <form action="signup" method="post">
+            {% csrf_token %}
+
+                <input type="text" name="first_name" placeholder="First Name">
+                <input type="text" name="last_name" placeholder="Last Name">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email"  name="email" placeholder="Email" required>
+                <input type="password" name="password1" placeholder="Password" required>
+                <input type="password" name="password2" placeholder="Confirm Password" required>
+                 <input type="submit" value="Sign Up">
+
+            </form>
+
+            <div>
+                {% for message in messages %}
+                <h3> {{message}}</h3>
+                {% endfor %}
+            </div>
+
+
+        </div>
+
+
+
+    </body>
+
+
+
+</html>
